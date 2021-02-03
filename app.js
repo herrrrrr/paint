@@ -12,6 +12,8 @@ const mode = document.getElementById("jsMode");
 
 const saveBtn = document.getElementById("jsSave");
 
+const reset = document.getElementById("jsReset");
+
 // 색상 default 값
 const INITIAL_COLOR = "#2c2c2c";
 
@@ -117,6 +119,11 @@ function handleSaveClick() {
     link.click();
 }
 
+function handleResetClick() {
+    ctx.fillStyle = "white";
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
 if (canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
@@ -148,4 +155,8 @@ if (mode) {
 
 if (saveBtn) {
     saveBtn.addEventListener("click", handleSaveClick);
+}
+
+if (reset) {
+    reset.addEventListener("click", handleResetClick);
 }
